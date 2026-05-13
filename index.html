@@ -637,6 +637,45 @@
       }
     }
 
+  
+    /* Use parent/site background and remove extra empty space */
+    html,
+    body {
+      background: transparent !important;
+      min-height: auto !important;
+    }
+
+    .page-wrapper {
+      min-height: auto !important;
+      background: transparent !important;
+    }
+
+    main {
+      background: transparent !important;
+    }
+
+    main > .container-fluid {
+      padding-bottom: 1.5rem !important;
+    }
+
+    .method-card {
+      margin-bottom: 0 !important;
+    }
+
+    .section-gap:last-child {
+      margin-bottom: 0 !important;
+    }
+
+  
+    /* Final spacing after removing methodology block */
+    main > .container-fluid {
+      padding-bottom: 1rem !important;
+    }
+
+    .section-gap:last-of-type {
+      margin-bottom: 0 !important;
+    }
+
   </style>
 </head>
 
@@ -1159,37 +1198,7 @@
             </div>
           </div>
         </section>
-
-        <section class="section-gap">
-          <article class="method-card">
-            <h3>المنهجية والجودة</h3>
-            <p>
-              الرقم القياسي للإنتاج الصناعي هو مؤشر اقتصادي يعكس التغيرات النسبية في حجم كميات الإنتاج الصناعي
-              اعتمادًا على بيانات مسح الإنتاج الصناعي، الذي يتم تنفيذه على عينة من المنشآت الصناعية العاملة في
-              أنشطة التعدين واستغلال المحاجر، والصناعة التحويلية، وإمدادات الكهرباء والغاز والبخار وتكييف الهواء،
-              وأنشطة إمدادات المياه والصرف الصحي وإدارة النفايات ومعالجتها.
-              ويتم تصنيف بيانات هذا المؤشر التي تنشر على أساس شهري وفقًا للتصنيف الوطني للأنشطة الاقتصادية
-              <strong>(ISIC 4)</strong>. يمكن الاطلاع على تفاصيل أكثر من خلال الرابط:
-              <a
-                href="https://www.stats.gov.sa/ar/w/methodology-and-quality-report-for-production-statistics-4.1?tab=436318&amp;category=123454"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                المنهجية والجودة
-              </a>
-              ، وكذلك يمكن الاطلاع على الجداول من خلال الرابط:
-              <a
-                href="https://www.stats.gov.sa/documents/d/guest/ipi-march-2026"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                الجداول
-              </a>.
-            </p>
-          </article>
-        </section>
-
-      </div>
+</div>
     </main>
   </div>
 
