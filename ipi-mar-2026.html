@@ -1,0 +1,1173 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>الرقم القياسي للإنتاج الصناعي - مارس 2026م</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+    rel="stylesheet"
+  >
+
+  <style>
+    :root {
+      --dl-primary: #0b5d3b;
+      --dl-primary-700: #064c31;
+      --dl-primary-light: #22c55e;
+      --dl-gold: #cdae4a;
+      --dl-gray-50: #f9fafb;
+      --dl-gray-100: #f3f4f6;
+      --dl-gray-200: #e5e7eb;
+      --dl-gray-400: #9ca3af;
+      --dl-gray-500: #6b7280;
+      --dl-gray-700: #374151;
+      --dl-gray-900: #111827;
+      --dl-white: #ffffff;
+      --dl-danger: #dc2626;
+      --dl-success: #047857;
+      --dl-border: #d9dee7;
+      --dl-shadow-sm: 0 1px 2px rgba(16, 24, 40, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--dl-gray-900);
+      background: var(--dl-gray-50);
+      font-family: "IBM Plex Sans Arabic", "IBM Plex Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    p {
+      margin-bottom: 0;
+      line-height: 1.9;
+    }
+
+    .page-wrapper {
+      min-height: 100vh;
+      background: var(--dl-gray-50);
+    }
+
+    .section-gap {
+      margin-top: clamp(2rem, 4vw, 4rem);
+    }
+
+    .hero-card,
+    .stat-card,
+    .content-card,
+    .method-card,
+    .chart-shell,
+    .table-card {
+      border: 1px solid var(--dl-border);
+      border-radius: 1.25rem;
+      background: var(--dl-white);
+      box-shadow: var(--dl-shadow-sm);
+    }
+
+    .hero-card {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(1.5rem, 3vw, 3rem);
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset-inline-start: 0;
+      inset-block-start: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(90deg, var(--dl-primary), var(--dl-primary-light));
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      color: var(--dl-primary-700);
+      background: rgba(11, 93, 59, 0.08);
+      font-size: 0.875rem;
+      font-weight: 800;
+    }
+
+    .hero-title {
+      max-width: 1000px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      font-weight: 900;
+      line-height: 1.22;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-lead {
+      max-width: 980px;
+      color: var(--dl-gray-700);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+    }
+
+    .main-kpi {
+      min-width: 250px;
+      padding: 1.5rem;
+      border: 1px solid var(--dl-border);
+      border-radius: 1.25rem;
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.08), rgba(255,255,255,0.95));
+    }
+
+    .kpi-label {
+      color: var(--dl-gray-500);
+      font-weight: 800;
+    }
+
+    .kpi-value {
+      display: block;
+      margin: 0.5rem 0;
+      color: var(--dl-danger);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .kpi-note {
+      color: var(--dl-gray-700);
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      background: var(--dl-gray-100);
+      color: var(--dl-gray-700);
+      font-size: 0.875rem;
+      font-weight: 800;
+    }
+
+    .stat-card,
+    .content-card,
+    .method-card a {
+      color: var(--dl-primary);
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .method-card {
+      height: 100%;
+      padding: 1.5rem;
+    }
+
+    .stat-card-label {
+      display: block;
+      color: var(--dl-gray-500);
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .stat-card-value {
+      display: block;
+      margin: 0.45rem 0 0.75rem;
+      font-size: clamp(1.85rem, 3vw, 2.75rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .stat-card p,
+    .content-card p,
+    .method-card p {
+      color: var(--dl-gray-700);
+    }
+
+    .content-card {
+      border-inline-start: 6px solid var(--dl-primary);
+    }
+
+    .content-card h3,
+    .method-card h3 {
+      margin-bottom: 1rem;
+      color: var(--dl-gray-900);
+      font-size: 1.35rem;
+      font-weight: 900;
+      line-height: 1.5;
+    }
+
+    .negative {
+      color: var(--dl-danger) !important;
+    }
+
+    .positive {
+      color: var(--dl-success) !important;
+    }
+
+    .section-heading {
+      margin-bottom: 1.25rem;
+    }
+
+    .section-heading h2 {
+      color: var(--dl-gray-900);
+      font-size: clamp(1.5rem, 2.4vw, 2.25rem);
+      font-weight: 900;
+      line-height: 1.35;
+    }
+
+    .section-heading p {
+      color: var(--dl-gray-500);
+    }
+
+    /* Sample-like chart tabs */
+    .chart-tabs-nav {
+      gap: 0.5rem;
+      margin-bottom: 1.75rem;
+      direction: ltr;
+      justify-content: flex-start;
+    }
+
+    .chart-tabs-nav .nav-link {
+      min-height: 40px;
+      padding: 0.65rem 1.05rem;
+      border: 1px solid var(--dl-border);
+      border-radius: 0.5rem;
+      color: var(--dl-gray-700);
+      background: var(--dl-white);
+      font-size: 0.92rem;
+      font-weight: 900;
+      box-shadow: none;
+      white-space: nowrap;
+    }
+
+    .chart-tabs-nav .nav-link.active {
+      color: var(--dl-white);
+      border-color: var(--dl-primary);
+      background: var(--dl-primary);
+    }
+
+    .chart-shell {
+      padding: clamp(1rem, 2vw, 2rem);
+      direction: ltr;
+    }
+
+    .chart-title {
+      margin: 0 0 0.25rem;
+      direction: rtl;
+      text-align: right;
+      color: var(--dl-gray-900);
+      font-size: 1.25rem;
+      font-weight: 900;
+      direction: rtl;
+      text-align: right;
+    }
+
+    .chart-subtitle {
+      direction: rtl;
+      text-align: right;
+      color: var(--dl-gray-500);
+      font-size: 0.95rem;
+      direction: ltr;
+      text-align: left;
+      margin-bottom: 1.5rem;
+    }
+
+    .svg-chart {
+      width: 100%;
+      min-width: 920px;
+      height: auto;
+      display: block;
+    }
+
+    .chart-scroll {
+      overflow-x: auto;
+      width: 100%;
+    }
+
+    .svg-chart text {
+      font-family: "IBM Plex Sans", system-ui, sans-serif;
+      fill: var(--dl-gray-500);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .svg-chart .axis-label {
+      fill: var(--dl-gray-700);
+      font-size: 13px;
+    }
+
+    .svg-chart .legend-text {
+      fill: var(--dl-primary);
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .svg-chart .grid-line {
+      stroke: var(--dl-gray-200);
+      stroke-width: 1;
+      stroke-dasharray: 4 4;
+    }
+
+    .svg-chart .axis-line {
+      stroke: #9aa0a6;
+      stroke-width: 1.5;
+    }
+
+    .table-card {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .table-responsive {
+      width: 100%;
+      overflow-x: auto;
+      direction: rtl;
+    }
+
+    .report-table {
+      width: 100%;
+      min-width: 0;
+      margin: 0;
+      border-collapse: separate;
+      border-spacing: 0;
+      table-layout: auto;
+      direction: rtl;
+      background: var(--dl-white);
+    }
+
+    .report-table th,
+    .report-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--dl-border);
+      text-align: start;
+      vertical-align: middle;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .report-table thead th {
+      background: var(--dl-primary);
+      color: var(--dl-white);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+
+    .report-table th:first-child,
+    .report-table td:first-child {
+      width: 38%;
+    }
+
+    .report-table tbody tr:nth-child(even) td {
+      background: var(--dl-gray-50);
+    }
+
+    .report-table tbody tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .method-card a {
+      color: var(--dl-primary);
+      font-weight: 900;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .method-card {
+      background: linear-gradient(135deg, rgba(11,93,59,.08), rgba(34,197,94,.06)), var(--dl-white);
+    }
+
+
+    /* Better inner spacing for RTL cards and green border edge */
+    .content-card {
+      padding-inline-start: 2rem;
+      padding-inline-end: 2rem;
+    }
+
+    .content-card h3,
+    .content-card p {
+      padding-inline-start: 0.25rem;
+      padding-inline-end: 0.25rem;
+    }
+
+    .stat-card {
+      padding-inline-start: 2rem;
+      padding-inline-end: 2rem;
+    }
+
+    .method-card {
+      padding-inline-start: 2rem;
+      padding-inline-end: 2rem;
+    }
+
+    .hero-card {
+      margin-inline: 0.25rem;
+    }
+
+    @media (max-width: 767.98px) {
+      .content-card,
+      .stat-card,
+      .method-card {
+        padding-inline-start: 1.25rem;
+        padding-inline-end: 1.25rem;
+      }
+
+      .hero-card {
+        margin-inline: 0;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .chart-tabs-nav {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+
+      .chart-shell {
+        padding: 1rem;
+      }
+
+      .report-table {
+        min-width: 820px;
+      }
+    }
+  
+    /* Restore clean card style like the earlier approved version */
+    .stat-card,
+    .content-card,
+    .method-card,
+    .hero-card {
+      text-decoration: none !important;
+    }
+
+    .stat-card *,
+    .content-card *,
+    .method-card *:not(a),
+    .hero-card * {
+      text-decoration: none !important;
+    }
+
+    .stat-card {
+      min-height: 180px;
+      padding: 1.75rem 1.5rem !important;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      text-align: right;
+      border-radius: 1rem;
+    }
+
+    .stat-card-label {
+      margin-bottom: 0.75rem;
+      color: var(--dl-gray-500);
+      font-size: 1rem;
+      font-weight: 800;
+      text-align: right;
+      width: 100%;
+    }
+
+    .stat-card-value {
+      margin: 0 0 1rem;
+      font-size: clamp(2.4rem, 3.8vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1;
+      text-align: right;
+      width: 100%;
+      text-decoration: none !important;
+    }
+
+    .stat-card p {
+      color: var(--dl-gray-700);
+      font-size: 1rem;
+      line-height: 1.9;
+      text-align: right;
+      width: 100%;
+      text-decoration: none !important;
+    }
+
+    .section-heading {
+      text-align: right;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0.75rem;
+      text-decoration: none !important;
+    }
+
+    .section-heading p {
+      text-decoration: none !important;
+    }
+
+    .content-card {
+      min-height: 190px;
+      padding: 2rem 2rem !important;
+      border-inline-start: 0;
+      border-inline-end: 6px solid var(--dl-primary);
+      border-radius: 1rem;
+      text-align: right;
+    }
+
+    .content-card h3 {
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+      font-weight: 900;
+      text-align: right;
+      text-decoration: none !important;
+    }
+
+    .content-card p {
+      color: var(--dl-gray-700);
+      font-size: 1rem;
+      line-height: 2;
+      text-align: right;
+      text-decoration: none !important;
+    }
+
+    .content-card strong {
+      text-decoration: none !important;
+    }
+
+    .method-card {
+      padding: 2rem !important;
+      text-align: right;
+    }
+
+    .method-card h3,
+    .method-card p,
+    .method-card strong {
+      text-decoration: none !important;
+    }
+
+    .method-card a {
+      color: var(--dl-primary);
+      font-weight: 900;
+      text-decoration: underline !important;
+      text-underline-offset: 3px;
+    }
+
+    @media (min-width: 1200px) {
+      .stat-card {
+        min-height: 180px;
+      }
+
+      .content-card {
+        min-height: 190px;
+      }
+    }
+
+    @media (max-width: 767.98px) {
+      .stat-card,
+      .content-card,
+      .method-card {
+        padding: 1.25rem !important;
+      }
+
+      .stat-card {
+        min-height: auto;
+      }
+
+      .content-card {
+        min-height: auto;
+      }
+    }
+
+  
+    .stats-section {
+      max-width: 1300px;
+      margin-inline: auto;
+    }
+
+    .stats-section .col-12 {
+      display: flex;
+    }
+
+    .stats-section .stat-card {
+      width: 100%;
+    }
+
+  
+    /* Right green accent for Arabic activity cards */
+    .content-card {
+      border: 1px solid var(--dl-border) !important;
+      border-radius: 1rem !important;
+      box-shadow:
+        inset -6px 0 0 var(--dl-primary),
+        var(--dl-shadow-sm) !important;
+      padding-right: 2.5rem !important;
+      padding-left: 2rem !important;
+    }
+
+  
+    /* Align chart tabs to the right for Arabic RTL layout */
+    .chart-tabs-nav {
+      direction: rtl !important;
+      justify-content: flex-start !important;
+      text-align: right !important;
+    }
+
+    .chart-tabs-nav .nav-item {
+      direction: rtl !important;
+    }
+
+    .chart-tabs-nav .nav-link {
+      direction: rtl !important;
+      text-align: center !important;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="page-wrapper">
+    <main>
+      <div class="container-fluid px-4 px-lg-5 py-4">
+
+        <section class="hero-card">
+          <div class="row g-4 align-items-center">
+            <div class="col-12 col-xl">
+              <span class="eyebrow mb-3">تقرير شهري</span>
+
+              <h1 class="hero-title mb-4">
+                انخفاض الرقم القياسي للإنتاج الصناعي بنسبة 14.1% خلال شهر مارس 2026م
+              </h1>
+
+              <p class="hero-lead">
+                تشير النتائج الأولية إلى انخفاض مؤشر الرقم القياسي لكميات الإنتاج الصناعي بنسبة
+                <strong>14.1%</strong> خلال شهر مارس من عام 2026م مقارنةً بالشهر المماثل من العام السابق
+                مارس 2025م، نتيجة انخفاض نشاط التعدين واستغلال المحاجر، ونشاط الصناعة التحويلية.
+                ومن جانب آخر سجل المؤشر انخفاضًا شهريًا بنسبة <strong>22.3%</strong>.
+              </p>
+
+              <div class="d-flex flex-wrap gap-2 mt-4">
+                <span class="pill">الرقم القياسي للإنتاج الصناعي</span>
+                <span class="pill">ISIC4</span>
+                <span class="pill">مارس 2026م</span>
+              </div>
+            </div>
+
+            <div class="col-12 col-xl-auto">
+              <div class="main-kpi text-center">
+                <span class="kpi-label">التغير السنوي للمؤشر العام</span>
+                <strong class="kpi-value">-14.1%</strong>
+                <span class="kpi-note">مارس 2026م مقارنة بمارس 2025م</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-gap stats-section">
+          <div class="row g-4 justify-content-center">
+            <div class="col-12 col-md-6 col-xl-3">
+              <article class="stat-card">
+                <span class="stat-card-label">المؤشر العام</span>
+                <strong class="stat-card-value negative">-14.1%</strong>
+                <p>انخفاض سنوي في الرقم القياسي للإنتاج الصناعي.</p>
+              </article>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <article class="stat-card">
+                <span class="stat-card-label">المقارنة الشهرية</span>
+                <strong class="stat-card-value negative">-22.3%</strong>
+                <p>انخفاض مقارنة بشهر فبراير 2026م.</p>
+              </article>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <article class="stat-card">
+                <span class="stat-card-label">الأنشطة النفطية</span>
+                <strong class="stat-card-value negative">-20.0%</strong>
+                <p>انخفاض سنوي في مؤشر الأنشطة النفطية.</p>
+              </article>
+            </div>
+
+            <div class="col-12 col-md-6 col-xl-3">
+              <article class="stat-card">
+                <span class="stat-card-label">الأنشطة غير النفطية</span>
+                <strong class="stat-card-value positive">+1.4%</strong>
+                <p>ارتفاع شهري، مع استقرار سنوي قريب من مستوى العام السابق.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-gap">
+          <div class="section-heading">
+            <h2>أداء الأنشطة الصناعية الرئيسة</h2>
+            <p>ملخص المؤشرات الفرعية خلال مارس 2026م.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-12 col-lg-6">
+              <article class="content-card">
+                <h3>التعدين واستغلال المحاجر</h3>
+                <p>
+                  انخفض مؤشر الرقم القياسي الفرعي لنشاط التعدين واستغلال المحاجر بنسبة
+                  <strong class="negative">22.2%</strong> على أساس سنوي. وعلى أساس شهري سجل المؤشر انخفاضًا
+                  بنسبة <strong class="negative">36.0%</strong>.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <article class="content-card">
+                <h3>الصناعة التحويلية</h3>
+                <p>
+                  انخفض مؤشر الرقم القياسي الفرعي لنشاط الصناعة التحويلية بنسبة
+                  <strong class="negative">4.7%</strong> على أساس سنوي، متأثرًا بانخفاض نشاط صنع فحم الكوك
+                  والمنتجات النفطية المكررة، ونشاط صنع المواد الكيميائية والمنتجات الكيميائية.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <article class="content-card">
+                <h3>إمدادات الكهرباء والغاز والبخار وتكييف الهواء</h3>
+                <p>
+                  سجل المؤشر الفرعي لهذا النشاط ارتفاعًا بنسبة
+                  <strong class="positive">10.1%</strong> مقارنة بشهر مارس من العام السابق،
+                  وارتفع شهريًا بنسبة <strong class="positive">4.3%</strong>.
+                </p>
+              </article>
+            </div>
+
+            <div class="col-12 col-lg-6">
+              <article class="content-card">
+                <h3>إمدادات المياه والصرف الصحي وإدارة النفايات</h3>
+                <p>
+                  سجل المؤشر الفرعي لأنشطة إمدادات المياه والصرف الصحي وإدارة النفايات ومعالجتها
+                  ارتفاعًا سنويًا بنسبة <strong class="positive">1.1%</strong>، وارتفاعًا شهريًا بنسبة
+                  <strong class="positive">2.0%</strong>.
+                </p>
+              </article>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="section-gap">
+          <ul class="nav chart-tabs-nav" id="ipiChartTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button class="nav-link active" id="chart-one-tab" data-bs-toggle="tab" data-bs-target="#chart-one" type="button" role="tab" aria-controls="chart-one" aria-selected="true">
+                اتجاه الرقم القياسي (شكل 1)
+              </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="chart-two-tab" data-bs-toggle="tab" data-bs-target="#chart-two" type="button" role="tab" aria-controls="chart-two" aria-selected="false">
+                القطاعات حسب ISIC4 (شكل 2)
+              </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="chart-three-tab" data-bs-toggle="tab" data-bs-target="#chart-three" type="button" role="tab" aria-controls="chart-three" aria-selected="false">
+                النمو السنوي (شكل 3)
+              </button>
+            </li>
+
+            <li class="nav-item" role="presentation">
+              <button class="nav-link" id="chart-four-tab" data-bs-toggle="tab" data-bs-target="#chart-four" type="button" role="tab" aria-controls="chart-four" aria-selected="false">
+                النفطي وغير النفطي (شكل 4)
+              </button>
+            </li>
+          </ul>
+
+          <div class="tab-content" id="ipiChartTabsContent">
+
+            <!-- Figure 1 -->
+            <div class="tab-pane fade show active" id="chart-one" role="tabpanel" aria-labelledby="chart-one-tab" tabindex="0">
+              <div class="chart-shell">
+                <h2 class="chart-title">الرقم القياسي العام ومعدلات النمو السنوية</h2>
+                <p class="chart-subtitle">قيم الرقم القياسي الشهرية ومعدل النمو السنوي | مارس 2025م – مارس 2026م</p>
+
+                <div class="chart-scroll">
+                  <svg class="svg-chart" viewBox="0 0 1200 420" role="img" aria-label="General IPI and annual growth rates">
+                    <!-- grid -->
+                    <line class="grid-line" x1="90" y1="70" x2="1100" y2="70"></line>
+                    <line class="grid-line" x1="90" y1="145" x2="1100" y2="145"></line>
+                    <line class="grid-line" x1="90" y1="220" x2="1100" y2="220"></line>
+                    <line class="grid-line" x1="90" y1="295" x2="1100" y2="295"></line>
+                    <line class="axis-line" x1="90" y1="320" x2="1100" y2="320"></line>
+                    <line class="axis-line" x1="90" y1="70" x2="90" y2="320"></line>
+                    <line class="axis-line" x1="1100" y1="70" x2="1100" y2="320"></line>
+
+                    <!-- y labels -->
+                    <text x="80" y="324" text-anchor="end">95</text>
+                    <text x="80" y="245" text-anchor="end">103</text>
+                    <text x="80" y="170" text-anchor="end">111</text>
+                    <text x="80" y="74" text-anchor="end">125</text>
+
+                    <text x="1120" y="324">-20</text>
+                    <text x="1120" y="270">-10</text>
+                    <text x="1120" y="220">0</text>
+                    <text x="1120" y="170">5</text>
+                    <text x="1120" y="120">10</text>
+                    <text x="1120" y="74">15</text>
+
+                    <text class="axis-label" x="45" y="205" transform="rotate(-90 45 205)">الرقم القياسي للإنتاج الصناعي</text>
+                    <text class="axis-label" x="1150" y="205" transform="rotate(90 1150 205)">معدل النمو السنوي %</text>
+
+                    <!-- bars March 2025 to March 2026 -->
+                    <g fill="#0b5d3b">
+                      <rect x="112" y="182" width="58" height="138" rx="5"></rect>
+                      <rect x="192" y="176" width="58" height="144" rx="5"></rect>
+                      <rect x="272" y="168" width="58" height="152" rx="5"></rect>
+                      <rect x="352" y="160" width="58" height="160" rx="5"></rect>
+                      <rect x="432" y="152" width="58" height="168" rx="5"></rect>
+                      <rect x="512" y="146" width="58" height="174" rx="5"></rect>
+                      <rect x="592" y="142" width="58" height="178" rx="5"></rect>
+                      <rect x="672" y="138" width="58" height="182" rx="5"></rect>
+                      <rect x="752" y="132" width="58" height="188" rx="5"></rect>
+                      <rect x="832" y="127" width="58" height="193" rx="5"></rect>
+                      <rect x="912" y="115" width="58" height="205" rx="5"></rect>
+                      <rect x="992" y="112" width="58" height="208" rx="5" fill="#cdae4a"></rect>
+                    </g>
+
+                    <!-- growth line -->
+                    <polyline
+                      points="141,235 221,255 301,232 381,205 461,210 541,198 621,190 701,178 781,182 861,160 941,112 1021,365"
+                      fill="none"
+                      stroke="#0ea5e9"
+                      stroke-width="4"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></polyline>
+
+                    <!-- x labels -->
+                    <text x="141" y="340" text-anchor="middle">أبريل-25</text>
+                    <text x="221" y="340" text-anchor="middle">مايو-25</text>
+                    <text x="301" y="340" text-anchor="middle">يونيو-25</text>
+                    <text x="381" y="340" text-anchor="middle">يوليو-25</text>
+                    <text x="461" y="340" text-anchor="middle">أغسطس-25</text>
+                    <text x="541" y="340" text-anchor="middle">سبتمبر-25</text>
+                    <text x="621" y="340" text-anchor="middle">أكتوبر-25</text>
+                    <text x="701" y="340" text-anchor="middle">نوفمبر-25</text>
+                    <text x="781" y="340" text-anchor="middle">ديسمبر-25</text>
+                    <text x="861" y="340" text-anchor="middle">يناير-26</text>
+                    <text x="941" y="340" text-anchor="middle">فبراير-26</text>
+                    <text x="1021" y="340" text-anchor="middle">مارس-26</text>
+
+                    <rect x="530" y="372" width="14" height="14" fill="#0b5d3b"></rect>
+                    <text class="legend-text" x="552" y="385">الرقم القياسي للإنتاج الصناعي</text>
+                    <circle cx="530" cy="410" r="3" fill="#9ca3af"></circle>
+                    <text x="542" y="414">العمود الذهبي = مارس 2026م (الأحدث)</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Figure 2 -->
+            <div class="tab-pane fade" id="chart-two" role="tabpanel" aria-labelledby="chart-two-tab" tabindex="0">
+              <div class="chart-shell">
+                <h2 class="chart-title">الرقم القياسي للإنتاج الصناعي حسب تصنيف ISIC4 — يناير 2026م، فبراير 2026م، مارس 2026م</h2>
+                <p class="chart-subtitle">مقارنة مجمعة لمؤشرات القطاعات الرئيسة الأربعة حسب تصنيف ISIC4</p>
+
+                <div class="chart-scroll">
+                  <svg class="svg-chart" viewBox="0 0 1200 420" role="img" aria-label="IPI by ISIC4 classification">
+                    <line class="grid-line" x1="90" y1="70" x2="1120" y2="70"></line>
+                    <line class="grid-line" x1="90" y1="150" x2="1120" y2="150"></line>
+                    <line class="grid-line" x1="90" y1="230" x2="1120" y2="230"></line>
+                    <line class="axis-line" x1="90" y1="320" x2="1120" y2="320"></line>
+                    <line class="axis-line" x1="90" y1="70" x2="90" y2="320"></line>
+
+                    <text x="80" y="324" text-anchor="end">80</text>
+                    <text x="80" y="238" text-anchor="end">100</text>
+                    <text x="80" y="158" text-anchor="end">120</text>
+                    <text x="80" y="74" text-anchor="end">145</text>
+
+                    <!-- إمدادات المياه -->
+                    <rect x="135" y="250" width="58" height="70" rx="5" fill="#9ca3af"></rect>
+                    <rect x="205" y="120" width="58" height="200" rx="5" fill="#147a4b"></rect>
+                    <rect x="275" y="146" width="58" height="174" rx="5" fill="#0b5d3b"></rect>
+                    <text x="234" y="345" text-anchor="middle">إمدادات المياه</text>
+
+                    <!-- الكهرباء -->
+                    <rect x="395" y="238" width="58" height="82" rx="5" fill="#9ca3af"></rect>
+                    <rect x="465" y="220" width="58" height="100" rx="5" fill="#147a4b"></rect>
+                    <rect x="535" y="238" width="58" height="82" rx="5" fill="#0b5d3b"></rect>
+                    <text x="494" y="345" text-anchor="middle">الكهرباء</text>
+
+                    <!-- الصناعة التحويلية -->
+                    <rect x="655" y="145" width="58" height="175" rx="5" fill="#9ca3af"></rect>
+                    <rect x="725" y="142" width="58" height="178" rx="5" fill="#147a4b"></rect>
+                    <rect x="795" y="136" width="58" height="184" rx="5" fill="#0b5d3b"></rect>
+                    <text x="754" y="345" text-anchor="middle">الصناعة التحويلية</text>
+
+                    <!-- Mining -->
+                    <rect x="915" y="90" width="58" height="230" rx="5" fill="#9ca3af"></rect>
+                    <rect x="985" y="95" width="58" height="225" rx="5" fill="#147a4b"></rect>
+                    <rect x="1055" y="190" width="58" height="130" rx="5" fill="#0b5d3b"></rect>
+                    <text x="1014" y="345" text-anchor="middle">التعدين واستغلال المحاجر</text>
+
+                    <rect x="500" y="376" width="14" height="14" fill="#9ca3af"></rect>
+                    <text class="legend-text" x="520" y="390" fill="#9ca3af">يناير-26</text>
+                    <rect x="610" y="376" width="14" height="14" fill="#147a4b"></rect>
+                    <text class="legend-text" x="630" y="390">فبراير-26</text>
+                    <rect x="720" y="376" width="14" height="14" fill="#0b5d3b"></rect>
+                    <text class="legend-text" x="740" y="390">مارس-26</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Figure 3 -->
+            <div class="tab-pane fade" id="chart-three" role="tabpanel" aria-labelledby="chart-three-tab" tabindex="0">
+              <div class="chart-shell">
+                <h2 class="chart-title">معدل النمو السنوي حسب المؤشرات الفرعية — مارس 2026م</h2>
+                <p class="chart-subtitle">نسبة التغير السنوي لكل نشاط اقتصادي رئيسي</p>
+
+                <div class="chart-scroll">
+                  <svg class="svg-chart" viewBox="0 0 1200 320" role="img" aria-label="Annual growth rate by sub-index">
+                    <text x="20" y="78" fill="#374151" font-weight="800">التعدين واستغلال المحاجر</text>
+                    <rect x="260" y="55" width="810" height="32" rx="4" fill="#f3f4f6"></rect>
+                    <rect x="260" y="55" width="760" height="32" rx="4" fill="#0b5d3b"></rect>
+                    <text x="1010" y="76" text-anchor="end" fill="#ffffff" font-weight="900">-22.2%</text>
+
+                    <text x="20" y="128" fill="#374151" font-weight="800">الصناعة التحويلية</text>
+                    <rect x="260" y="105" width="810" height="32" rx="4" fill="#f3f4f6"></rect>
+                    <rect x="260" y="105" width="165" height="32" rx="4" fill="#dc2626"></rect>
+                    <text x="415" y="126" text-anchor="end" fill="#ffffff" font-weight="900">-4.7%</text>
+
+                    <text x="20" y="178" fill="#374151" font-weight="800">الكهرباء Supply</text>
+                    <rect x="260" y="155" width="810" height="32" rx="4" fill="#f3f4f6"></rect>
+                    <rect x="260" y="155" width="345" height="32" rx="4" fill="#0b5d3b"></rect>
+                    <text x="595" y="176" text-anchor="end" fill="#ffffff" font-weight="900">+10.1%</text>
+
+                    <text x="20" y="228" fill="#374151" font-weight="800">إمدادات المياه</text>
+                    <rect x="260" y="205" width="810" height="32" rx="4" fill="#f3f4f6"></rect>
+                    <rect x="260" y="205" width="45" height="32" rx="4" fill="#0b5d3b"></rect>
+                    <text x="315" y="226" fill="#0b5d3b" font-weight="900">+1.1%</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Figure 4 -->
+            <div class="tab-pane fade" id="chart-four" role="tabpanel" aria-labelledby="chart-four-tab" tabindex="0">
+              <div class="chart-shell">
+                <h2 class="chart-title">الرقم القياسي حسب الأنشطة الاقتصادية الرئيسة — النفطي وغير النفطي</h2>
+                <p class="chart-subtitle">الاتجاه الشهري لمؤشرات الأنشطة النفطية وغير النفطية | مارس 2025م – مارس 2026م</p>
+
+                <div class="chart-scroll">
+                  <svg class="svg-chart" viewBox="0 0 1200 420" role="img" aria-label="Oil vs Non-Oil chart">
+                    <line class="grid-line" x1="90" y1="70" x2="1120" y2="70"></line>
+                    <line class="grid-line" x1="90" y1="145" x2="1120" y2="145"></line>
+                    <line class="grid-line" x1="90" y1="220" x2="1120" y2="220"></line>
+                    <line class="grid-line" x1="90" y1="295" x2="1120" y2="295"></line>
+                    <line class="axis-line" x1="90" y1="320" x2="1120" y2="320"></line>
+                    <line class="axis-line" x1="90" y1="70" x2="90" y2="320"></line>
+
+                    <text x="80" y="324" text-anchor="end">80</text>
+                    <text x="80" y="248" text-anchor="end">100</text>
+                    <text x="80" y="173" text-anchor="end">120</text>
+                    <text x="80" y="98" text-anchor="end">140</text>
+                    <text x="80" y="74" text-anchor="end">160</text>
+
+                    <!-- 13 groups, oil dark + non oil bright -->
+                    <g>
+                      <rect x="110" y="248" width="30" height="72" rx="4" fill="#064c31"></rect>
+                      <rect x="146" y="145" width="30" height="175" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="190" y="238" width="30" height="82" rx="4" fill="#064c31"></rect>
+                      <rect x="226" y="132" width="30" height="188" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="270" y="230" width="30" height="90" rx="4" fill="#064c31"></rect>
+                      <rect x="306" y="126" width="30" height="194" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="350" y="232" width="30" height="88" rx="4" fill="#064c31"></rect>
+                      <rect x="386" y="122" width="30" height="198" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="430" y="238" width="30" height="82" rx="4" fill="#064c31"></rect>
+                      <rect x="466" y="95" width="30" height="225" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="510" y="235" width="30" height="85" rx="4" fill="#064c31"></rect>
+                      <rect x="546" y="86" width="30" height="234" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="590" y="238" width="30" height="82" rx="4" fill="#064c31"></rect>
+                      <rect x="626" y="128" width="30" height="192" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="670" y="228" width="30" height="92" rx="4" fill="#064c31"></rect>
+                      <rect x="706" y="82" width="30" height="238" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="750" y="228" width="30" height="92" rx="4" fill="#064c31"></rect>
+                      <rect x="786" y="82" width="30" height="238" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="830" y="235" width="30" height="85" rx="4" fill="#064c31"></rect>
+                      <rect x="866" y="125" width="30" height="195" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="910" y="235" width="30" height="85" rx="4" fill="#064c31"></rect>
+                      <rect x="946" y="127" width="30" height="193" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="990" y="236" width="30" height="84" rx="4" fill="#064c31"></rect>
+                      <rect x="1026" y="127" width="30" height="193" rx="4" fill="#22c55e"></rect>
+
+                      <rect x="1070" y="210" width="30" height="110" rx="4" fill="#064c31"></rect>
+                      <rect x="1106" y="127" width="30" height="193" rx="4" fill="#22c55e"></rect>
+                    </g>
+
+                    <text x="128" y="340" text-anchor="middle">مارس-25</text>
+                    <text x="208" y="340" text-anchor="middle">أبريل-25</text>
+                    <text x="288" y="340" text-anchor="middle">مايو-25</text>
+                    <text x="368" y="340" text-anchor="middle">يونيو-25</text>
+                    <text x="448" y="340" text-anchor="middle">يوليو-25</text>
+                    <text x="528" y="340" text-anchor="middle">أغسطس-25</text>
+                    <text x="608" y="340" text-anchor="middle">سبتمبر-25</text>
+                    <text x="688" y="340" text-anchor="middle">أكتوبر-25</text>
+                    <text x="768" y="340" text-anchor="middle">نوفمبر-25</text>
+                    <text x="848" y="340" text-anchor="middle">ديسمبر-25</text>
+                    <text x="928" y="340" text-anchor="middle">يناير-26</text>
+                    <text x="1008" y="340" text-anchor="middle">فبراير-26</text>
+                    <text x="1088" y="340" text-anchor="middle">مارس-26</text>
+
+                    <rect x="480" y="372" width="14" height="14" fill="#064c31"></rect>
+                    <text class="legend-text" x="500" y="386">الأنشطة النفطية</text>
+                    <rect x="615" y="372" width="14" height="14" fill="#22c55e"></rect>
+                    <text class="legend-text" x="635" y="386" fill="#22c55e">Non-الأنشطة النفطية</text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <section class="section-gap">
+          <div class="section-heading">
+            <h2>جدول 1: الأنشطة الفرعية لنشاط الصناعة التحويلية</h2>
+            <p>* بيانات أولية.</p>
+          </div>
+
+          <div class="table-card">
+            <div class="table-responsive">
+              <table class="report-table">
+                <thead>
+                  <tr>
+                    <th>الأنشطة الاقتصادية</th>
+                    <th>مارس-26</th>
+                    <th>فبراير-26</th>
+                    <th>مارس-25</th>
+                    <th>معدل التغير السنوي</th>
+                    <th>معدل التغير الشهري</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>صنع فحم الكوك والمنتجات النفطية المكررة</td>
+                    <td>102.2</td>
+                    <td>106.8</td>
+                    <td>115.6</td>
+                    <td class="negative fw-bold">-11.6%</td>
+                    <td class="negative fw-bold">-4.3%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع المواد الكيميائية والمنتجات الكيميائية</td>
+                    <td>126.2</td>
+                    <td>125.3</td>
+                    <td>132.2</td>
+                    <td class="negative fw-bold">-4.5%</td>
+                    <td class="positive fw-bold">0.8%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع المنتجات الغذائية</td>
+                    <td>121.9</td>
+                    <td>118.8</td>
+                    <td>123.0</td>
+                    <td class="negative fw-bold">-0.9%</td>
+                    <td class="positive fw-bold">2.6%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع منتجات المعادن اللافلزية الأخرى</td>
+                    <td>140.7</td>
+                    <td>141.9</td>
+                    <td>139.6</td>
+                    <td class="positive fw-bold">0.8%</td>
+                    <td class="negative fw-bold">-0.8%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع الفلزات القاعدية</td>
+                    <td>122.6</td>
+                    <td>118.4</td>
+                    <td>112.4</td>
+                    <td class="positive fw-bold">9.0%</td>
+                    <td class="positive fw-bold">3.5%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع المشروبات</td>
+                    <td>138.8</td>
+                    <td>139.2</td>
+                    <td>138.2</td>
+                    <td class="positive fw-bold">0.5%</td>
+                    <td class="negative fw-bold">-0.3%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع الورق ومنتجات الورق</td>
+                    <td>150.6</td>
+                    <td>150.1</td>
+                    <td>147.6</td>
+                    <td class="positive fw-bold">2.0%</td>
+                    <td class="positive fw-bold">0.4%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع المعدات الكهربائية</td>
+                    <td>138.0</td>
+                    <td>139.1</td>
+                    <td>142.9</td>
+                    <td class="negative fw-bold">-3.4%</td>
+                    <td class="negative fw-bold">-0.8%</td>
+                  </tr>
+                  <tr>
+                    <td>صنع الأثاث</td>
+                    <td>96.2</td>
+                    <td>94.6</td>
+                    <td>96.3</td>
+                    <td class="negative fw-bold">-0.1%</td>
+                    <td class="positive fw-bold">1.7%</td>
+                  </tr>
+                  <tr>
+                    <td>الأنشطة الاقتصادية الأخرى</td>
+                    <td>148.9</td>
+                    <td>146.9</td>
+                    <td>145.9</td>
+                    <td class="positive fw-bold">2.1%</td>
+                    <td class="positive fw-bold">1.4%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-gap">
+          <article class="method-card">
+            <h3>المنهجية والجودة</h3>
+            <p>
+              الرقم القياسي للإنتاج الصناعي هو مؤشر اقتصادي يعكس التغيرات النسبية في حجم كميات الإنتاج الصناعي
+              اعتمادًا على بيانات مسح الإنتاج الصناعي، الذي يتم تنفيذه على عينة من المنشآت الصناعية العاملة في
+              أنشطة التعدين واستغلال المحاجر، والصناعة التحويلية، وإمدادات الكهرباء والغاز والبخار وتكييف الهواء،
+              وأنشطة إمدادات المياه والصرف الصحي وإدارة النفايات ومعالجتها.
+              ويتم تصنيف بيانات هذا المؤشر التي تنشر على أساس شهري وفقًا للتصنيف الوطني للأنشطة الاقتصادية
+              <strong>(ISIC 4)</strong>. يمكن الاطلاع على تفاصيل أكثر من خلال الرابط:
+              <a
+                href="https://www.stats.gov.sa/ar/w/methodology-and-quality-report-for-production-statistics-4.1?tab=436318&amp;category=123454"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                المنهجية والجودة
+              </a>
+              ، وكذلك يمكن الاطلاع على الجداول من خلال الرابط:
+              <a
+                href="https://www.stats.gov.sa/documents/d/guest/ipi-march-2026"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                الجداول
+              </a>.
+            </p>
+          </article>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
